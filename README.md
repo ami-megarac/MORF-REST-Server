@@ -1,2 +1,2 @@
-# MORF-Redfish-Frontend
+# MORF-REST-Server
 North Bound layer for MegaRAC Open Redfish
