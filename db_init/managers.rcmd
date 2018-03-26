@@ -1,0 +1,47 @@
+SET		Redfish:Managers:LastModified										"999999999"
+SET		Redfish:Managers:Self:LastModified									"999999999"
+SET		Redfish:Managers:Self:Name											"Manager"
+SET		Redfish:Managers:Self:ResourceExists								true
+SET		Redfish:Managers:Self:ManagerType									"BMC"
+SET		Redfish:Managers:Self:Description									"BMC"
+SET		Redfish:Managers:Self:SyncedDateTime								"true"
+HSET    Redfish:Managers:Self:Status                                        State                   "Enabled"
+HSET    Redfish:Managers:Self:Status                                        Health                  "OK"
+SET		Redfish:Managers:Self:LogServices:LastModified						"999999999"
+SET		Redfish:Managers:Self:LogServices:SEL:LastModified					"999999999"
+SET		Redfish:Managers:Self:LogServices:SEL:IsCleared						"false"
+SET		Redfish:Managers:Self:LogServices:SEL:Name							"IPMI SEL"
+SET		Redfish:Managers:Self:LogServices:SEL:ResourceExists				true
+SET		Redfish:Managers:Self:LogServices:SEL:Description					"IPMI SEL events for this manager"
+SET		Redfish:Managers:Self:LogServices:SEL:MaxNumberOfRecords			300
+SETNX	Redfish:Managers:Self:LogServices:SEL:Entries:Index					0
+SET		Redfish:Managers:Self:LogServices:SEL:OverWritePolicy				"WrapsWhenFull"
+SET		Redfish:Managers:Self:LogServices:SEL:SyncedDateTime				"true"
+SET		Redfish:Managers:Self:LogServices:SEL:ServiceEnabled				true
+HSET	Redfish:Managers:Self:LogServices:SEL:Status 						State					"Enabled"
+HSET	Redfish:Managers:Self:LogServices:SEL:Status 						Health					"OK"
+SET		Redfish:Managers:Self:LogServices:AuditLog:LastModified				"999999999"
+SET		Redfish:Managers:Self:LogServices:AuditLog:Name						"Audit Log"
+SET		Redfish:Managers:Self:LogServices:AuditLog:ResourceExists			true
+SET		Redfish:Managers:Self:LogServices:AuditLog:Description				"Audit log for this manager"
+SET		Redfish:Managers:Self:LogServices:AuditLog:MaxNumberOfRecords		300
+SET		Redfish:Managers:Self:LogServices:AuditLog:OverWritePolicy			"WrapsWhenFull"
+SET		Redfish:Managers:Self:LogServices:AuditLog:SyncedDateTime			"true"
+SET		Redfish:Managers:Self:LogServices:AuditLog:ServiceEnabled			true
+HSET	Redfish:Managers:Self:LogServices:AuditLog:Status 					State					"Enabled"
+HSET	Redfish:Managers:Self:LogServices:AuditLog:Status 					Health					"OK"
+SET     Redfish:Managers:Self:LogServices:EventLog:LastModified             "999999999"
+SET     Redfish:Managers:Self:LogServices:EventLog:Name                     "Event Log"
+SET     Redfish:Managers:Self:LogServices:EventLog:ResourceExists           true
+SET     Redfish:Managers:Self:LogServices:EventLog:Description              "Event log for this manager"
+SET     Redfish:Managers:Self:LogServices:EventLog:MaxNumberOfRecords       300
+SET     Redfish:Managers:Self:LogServices:EventLog:OverWritePolicy          "WrapsWhenFull"
+SET     Redfish:Managers:Self:LogServices:EventLog:SyncedDateTime           "true"
+SET     Redfish:Managers:Self:LogServices:EventLog:ServiceEnabled           true
+SET     Redfish:Managers:Self:LogServices:SEL:onDeleteCascade               false
+HSET    Redfish:Managers:Self:LogServices:EventLog:Status                   State                   "Enabled"
+HSET    Redfish:Managers:Self:LogServices:EventLog:Status                   Health                  "OK"
+SET		Redfish:Managers:Self:NetworkProtocol:Name							"Manager Network Protocol"
+SET		Redfish:LastModified								 				0
+HSET    Redfish:Managers:Self:NetworkProtocol:Status                        State                   "Enabled"
+HSET    Redfish:Managers:Self:NetworkProtocol:Status                        Health  

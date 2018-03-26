@@ -1,0 +1,32 @@
+SET		Redfish:Chassis:Self:Name						"Computer System Chassis"
+SET		Redfish:Chassis:Self:ResourceExists				true
+SET		Redfish:Chassis:Self:ChassisType					"StandAlone"
+SET		Redfish:Chassis:Self:Manufacturer				""
+SET		Redfish:Chassis:Self:Model						""
+SET		Redfish:Chassis:Self:SKU							""
+SET		Redfish:Chassis:Self:SerialNumber				""
+SET		Redfish:Chassis:Self:PartNumber					""
+SET		Redfish:Chassis:Self:Description				""
+SET		Redfish:Chassis:Self:AssetTag					""
+HSET	Redfish:Chassis:Self:Status						State							"Enabled"
+HSET	Redfish:Chassis:Self:Status						Health							"OK"
+HSET	Redfish:Chassis:Self:Status						HealthRollup					"OK"
+SADD	Redfish:Chassis:Self:ManagedBy					Redfish:Managers:Self
+SADD	Redfish:Chassis:Self:ComputerSystems			Redfish:Systems:Self
+DEL		Redfish:Chassis:Self:ContainedBy
+DEL		Redfish:Chassis:Self:Contains
+SET		Redfish:Chassis:Self:LogServices:LastModified						"999999999"
+SET		Redfish:Chassis:Self:LogServices:Logs:LastModified					"999999999"
+SET		Redfish:Chassis:Self:LogServices:Logs:IsCleared						"false"
+SET		Redfish:Chassis:Self:LogServices:Logs:Name							"IPMI Chassis Logs"
+SET		Redfish:Chassis:Self:LogServices:Logs:Description					"IPMI SEL events for this manager"
+SET		Redfish:Chassis:Self:LogServices:Logs:MaxNumberOfRecords			300
+SETNX	Redfish:Chassis:Self:LogServices:Logs:Entries:Index					0
+SET		Redfish:Chassis:Self:LogServices:Logs:OverWritePolicy				"WrapsWhenFull"
+SET		Redfish:Chassis:Self:LogServices:Logs:SyncedDateTime				"true"
+SET		Redfish:Chassis:Self:LogServices:Logs:ServiceEnabled				true
+SET     Redfish:Chassis:Self:LogServices:Logs:onDeleteCascade               false
+SET		Redfish:Chassis:Self:LogServices:Logs:Reset							0
+HSET	Redfish:Chassis:Self:LogServices:Logs:Status 						State					"Enabled"
+HSET	Redfish:Chassis:Self:LogServices:Logs:Status 						Health					"OK"
+SET		Redfish:Chassis:Self:LogServices:Logs:ResourceExists				true

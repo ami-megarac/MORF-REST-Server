@@ -1,0 +1,33 @@
+SET       Redfish:Systems:Self:Name							"System"
+SET       Redfish:Systems:Self:ResourceExists				true
+SET       Redfish:Systems:Self:SystemType					"Physical"
+SET       Redfish:Systems:Self:AssetTag						"Free form asset tag"
+SET       Redfish:Systems:Self:Manufacturer					""
+SET       Redfish:Systems:Self:Model						""
+SET       Redfish:Systems:Self:SKU							""
+SET       Redfish:Systems:Self:SerialNumber					""
+SET       Redfish:Systems:Self:PartNumber					""
+SET       Redfish:Systems:Self:Description					"System Self"
+SET      Redfish:Systems:Self:Status:State			        "Enabled"
+SET      Redfish:Systems:Self:Status:Health			        "OK"
+SET      Redfish:Systems:Self:Status:HealthRollup	        "OK"
+SET		 Redfish:Systems:Self:LogServices:BIOS:LastModified			"999999999"
+SET		Redfish:Systems:Self:LogServices:BIOS:IsCleared						"false"
+SET 		Redfish:Systems:Self:LogServices:BIOS:Name 					"System BIOS Log Service"
+SET         Redfish:Systems:Self:LogServices:BIOS:ResourceExists			true
+SET 		Redfish:Systems:Self:LogServices:BIOS:MaxNumberOfRecords		1000
+SET 		Redfish:Systems:Self:LogServices:BIOS:OverWritePolicy			"WrapsWhenFull"
+SET		  Redfish:Systems:Self:LogServices:BIOS:SyncedDateTime			"true"
+SET 		Redfish:Systems:Self:LogServices:BIOS:DateTime					"2015-03-13T04:14:33+06:00"
+SET 		Redfish:Systems:Self:LogServices:BIOS:DateTimeLocalOffset		"+06:00"
+SET 		Redfish:Systems:Self:LogServices:BIOS:ServiceEnabled			true
+SET         Redfish:Systems:Self:LogServices:BIOS:onDeleteCascade           false
+HSET 		Redfish:Systems:Self:LogServices:BIOS:Status 		 			State 				"Enabled"
+HSET 		Redfish:Systems:Self:LogServices:BIOS:Status 		 			Health 				"OK"
+SADD 		Redfish:Systems:Self:Links:Chassis						Redfish:Chassis:Self
+SADD 		Redfish:Systems:Self:Links:ManagedBy						Redfish:Managers:Self
+SET       Redfish:Systems:Self:IndicatorLED					"Off"
+SET         Redfish:Systems:Reset						"1"
+SET Redfish:Systems:Self:SecureBoot:ref "Redfish:Systems:Self:SecureBoot"
+SET Redfish:Systems:Self:SecureBoot:Id "SecureBoot"
+SET Redfish:Systems:Self:SecureBoot:Name "UEFI Secure Boot"

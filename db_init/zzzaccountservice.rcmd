@@ -1,0 +1,32 @@
+SET       Redfish:ResourceExists                               					true
+SET       Redfish:AccountService:Name                                       	"Account Service"
+SET       Redfish:AccountService:Description                                 	"BMC User Accounts"
+HSET      Redfish:AccountService:Status                                       State   Enabled
+HSET      Redfish:AccountService:Status                                       Health  OK
+SET       Redfish:AccountService:ServiceEnabled                               true
+SET       Redfish:AccountService:ResourceExists                               true
+SET       Redfish:AccountService:AuthFailureLoggingThreshold                  3
+SET       Redfish:AccountService:MinPasswordLength                            8
+SET       Redfish:AccountService:AccountLockoutThreshold                      5
+SET       Redfish:AccountService:AccountLockoutDuration                       30
+SET       Redfish:AccountService:AccountLockoutCounterResetAfter              30
+SET       Redfish:AccountService:Accounts:1:Name                              "Default Account"
+SET       Redfish:AccountService:Accounts:1:Description                       "Default Account"
+SET       Redfish:AccountService:Accounts:1:Enabled                           true
+SET       Redfish:AccountService:Accounts:1:Password                          "4faf588c6301bf565bf35b7887ffe0ac"
+SET       Redfish:AccountService:Accounts:1:UserName                          "Administrator"
+SET       Redfish:AccountService:Accounts:1:RoleId                            "Administrator"
+SET       Redfish:AccountService:Accounts:1:Locked                            false
+SET       Redfish:AccountService:Accounts:1:Role                              Redfish:AccountService:Roles:Administrator
+SET       Redfish:AccountService:Roles:Administrator:Name                              "User Role"
+SET       Redfish:AccountService:Roles:Administrator:Description                       "Admin User Role"
+SET       Redfish:AccountService:Roles:Administrator:IsPredefined                      true
+SADD      Redfish:AccountService:Roles:Administrator:AssignedPrivileges                Login ConfigureManager ConfigureUsers ConfigureSelf ConfigureComponents
+SET       Redfish:AccountService:Roles:Operator:Name                           "User Role"
+SET       Redfish:AccountService:Roles:Operator:Description                    "Operator User Role"
+SET       Redfish:AccountService:Roles:Operator:IsPredefined                   true
+SADD      Redfish:AccountService:Roles:Operator:AssignedPrivileges             Login ConfigureSelf ConfigureComponents
+SET       Redfish:AccountService:Roles:ReadOnly:Name                       	"User Role"
+SET       Redfish:AccountService:Roles:ReadOnly:Description                	"ReadOnlyUser User Role"
+SET       Redfish:AccountService:Roles:ReadOnly:IsPredefined               	true
+SADD      Redfish:AccountService:Roles:ReadOnly:AssignedPrivileges         	Login ConfigureSelf

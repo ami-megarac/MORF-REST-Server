@@ -1,0 +1,11 @@
+#!/bin/sh
+SET		Redfish:TaskService:SyncedDateTime							"true"
+HSET	Redfish:TaskService:Status									State           Enabled
+HSET	Redfish:TaskService:Status									Health          OK
+SET		Redfish:TaskService:ServiceEnabled							true
+SET		Redfish:TaskService:ResourceExists							true
+SET		Redfish:TaskService:DateTime                      			2015-03-13T04:14:33+06:00
+SET		Redfish:TaskService:CompletedTaskOverWritePolicy			Oldest
+SET 	Redfish:TaskService:LifeCycleEventOnTaskStateChange			true
+SET 	Redfish:TaskService:Name									"TaskService"
+SET 	Redfish:TaskService:Description								"Task Service"

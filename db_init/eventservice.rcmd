@@ -1,0 +1,7 @@
+HSET      Redfish:EventService:Status                                     State           Enabled
+HSET      Redfish:EventService:Status                                     Health          OK
+SET       Redfish:EventService:ServiceEnabled                             true
+SET		  Redfish:EventService:ResourceExists							  true
+SET       Redfish:EventService:DeliveryRetryAttempts                      3
+SET       Redfish:EventService:DeliveryRetryIntervalSeconds               60
+SADD 		Redfish:EventService:EventTypesForSubscription					StatusChange ResourceUpdated ResourceAdded ResourceRemoved Alert

@@ -1,0 +1,5 @@
+HSET      Redfish:SessionService:Status                                     	State           Enabled
+HSET      Redfish:SessionService:Status                                     	Health          OK
+SET       Redfish:SessionService:ServiceEnabled                             	true
+SET       Redfish:SessionService:ResourceExists                             	true
+SET       Redfish:SessionService:SessionTimeout								30

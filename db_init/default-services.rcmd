@@ -1,0 +1,11 @@
+HSET	Redfish:Services		Systems				"/redfish/v1/Systems"
+HSET	Redfish:Services		Chassis				"/redfish/v1/Chassis"
+HSET	Redfish:Services		Managers			"/redfish/v1/Managers"
+HSET	Redfish:Services		Tasks				"/redfish/v1/TaskService"
+HSET	Redfish:Services		SessionService		"/redfish/v1/SessionService"
+HSET	Redfish:Services		AccountService		"/redfish/v1/AccountService"
+HSET	Redfish:Services		EventService		"/redfish/v1/EventService"
+HSET	Redfish:Services		Registries			"/redfish/v1/Registries"
+HSET	Redfish:Services		JsonSchemas			"/redfish/v1/JsonSchemas"
+HSET	Redfish:Services:Links	Sessions			"/redfish/v1/SessionService/Sessions"
+SET     Redfish:LastModified    9999999999

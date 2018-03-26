@@ -1,0 +1,72 @@
+#!/bin/sh
+# /etc/init.d/redfish-server: start redfish-server
+#
+# chkconfig: 2345 10 90
+#
+#Runlevel : S = S47
+#Runlevel : 6 = K46
+#Runlevel : 7 = K46
+#Runlevel : 8 = K46
+#
+
+PATH=/bin:/usr/bin:/sbin:/usr/sbin
+LUAJIT="luajit"
+SERVER_PATH="/usr/local/redfish/"
+SERVER_STOP_CMD="kill"
+SERVER_STOP_CMDOPTS="HUP"
+SERVER_STOP_CMDOPTS_CONF="USR1"
+SERVER_NAME="server.lua"
+DBINIT_NAME="./db_init/redis-init.sh"
+PID_FILE="/var/run/redfish-server.pid"
+EPID_FILE="/var/run/event-service.pid"
+TPID_FILE="/var/run/task-service.pid"
+
+# Options for start/stop the daemons
+case "$1" in
+  start)
+    echo -n "Starting Redfish Server"
+    export LD_LIBRARY_PATH=/usr/local/lib
+    #start-stop-daemon --start --quiet --exec $SERVER_PATH$SERVER_NAME -n $SERVER_NAME
+    echo 1 > /tmp/reload-notify
+    sleep 2
+    echo 2 > /tmp/redfish-start
+    cd $SERVER_PATH
+    `$DBINIT_NAME`
+    $LUAJIT $SERVER_NAME
+    echo 3 > /tmp/reload-notify
+    echo "."
+
+    echo -n
+    ;;
+  stop)
+    echo -n "Stopping Redfish Server"
+    #start-stop-daemon --stop --quiet --exec $SERVER_PATH$SERVER_NAME -n $SERVER_NAME --signal $SERVER_STOP_CMDOPTS
+    $SERVER_STOP_CMD -9 `cat $PID_FILE`
+    $SERVER_STOP_CMD -9 `cat $EPID_FILE`
+    $SERVER_STOP_CMD -9 `cat $TPID_FILE`
+    rm $PID_FILE $EPID_FILE $TPID_FILE
+    echo "."
+    echo -n
+    ;;
+  restart)
+    echo -n "Restarting Redfish Server"
+    #start-stop-daemon --stop --quiet --exec $SERVER_PATH$SERVER_NAME -n $SERVER_NAME --signal $SERVER_STOP_CMDOPTS
+    $SERVER_STOP_CMD -9 `cat $PID_FILE`
+    $SERVER_STOP_CMD -9 `cat $EPID_FILE`
+    $SERVER_STOP_CMD -9 `cat $TPID_FILE`
+    rm $PID_FILE $EPID_FILE $TPID_FILE
+    sleep 3
+    #start-stop-daemon --start --quiet --exec $SERVER_PATH$SERVER_NAME -n $SERVER_NAME
+    export LD_LIBRARY_PATH=/usr/local/lib
+    cd $SERVER_PATH;$LUAJIT $SERVER_NAME 
+    echo "."
+    echo -n
+    ;;
+  *)
+    echo "Usage: /etc/init.d/redfish-server {start|stop|restart}"
+    echo "."
+    echo -n
+    exit 1
+esac
+  
+exit 0
