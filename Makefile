@@ -12,7 +12,7 @@ all: clean build
 build:
 	for f in `find $(APP_DIR) -name "*.lua" -printf "%P\n"`; do \
 		mkdir -p $(OUTPUT_DIR)/`dirname "$$f"`; \
-		luajit -b -s "$$f" $(OUTPUT_DIR)/"$$f"; \
+		luajit -b -s $(APP_DIR)/"$$f" $(OUTPUT_DIR)/"$$f"; \
 	done
 
 clean:
