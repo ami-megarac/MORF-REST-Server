@@ -31,6 +31,6 @@ install:
 	install -d $(INSTALL_MODULE)/extensions/routes
 
 	cp -R $(OUTPUT_DIR)/* $(INSTALL_MODULE)
-	cp -R $(DB_DIR)/db_init $(INSTALL_MODULE)/db_init
+	cp -R $(DB_DIR) $(INSTALL_MODULE)/db_init
 
 	@echo "==== Successfully installed Redfish server to $(PREFIX) ===="
