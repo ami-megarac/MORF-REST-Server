@@ -501,10 +501,7 @@ end
 --- Inherited modules can use this function to mark the session as unauthorized
 -- @param msg optional Sets an optional message
 function RedfishHandler:unauthorized(msg)
-	if finished then
-		return
-	end
-
+	
 	self:add_header("WWW-Authenticate", 'Basic realm="AMI_Redfish_Server"') --TODO make the realm unique
 	self:add_header("WWW-Authenticate", 'X-Auth-Token realm="AMI_Redfish_Server"') --TODO make the realm unique
 
